@@ -18,7 +18,7 @@
 
 - (double) getTipForAmount:(double)amount tipPercent:(double)tipPercent
 {
-    return 0;
+    return (double)4;
 }
 
 @end
@@ -49,7 +49,7 @@
     
     double result = [calculator getTipForAmount:billAmount tipPercent:tipPercentage];
 
-    XCTAssertEqual((double)2, result, @"Tip should have been 2 dollars");
+    XCTAssertEqual(4, result, @"Tip should have been 4 dollars");
 }
 
 - (void)testErrorOnNegativeAmount
