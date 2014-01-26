@@ -18,7 +18,10 @@
 
 - (double) getTipForAmount:(double)amount tipPercent:(double)tipPercent
 {
-    return (double)4;
+    if (tipPercent > 1)
+        tipPercent = tipPercent / 100;
+    
+    return tipPercent * amount;
 }
 
 @end
@@ -49,7 +52,19 @@
     
     double result = [calculator getTipForAmount:billAmount tipPercent:tipPercentage];
 
-    XCTAssertEqual(4, result, @"Tip should have been 4 dollars");
+    XCTAssertEqual((double)4, result, @"Tip should have been 4 dollars");
+}
+
+- (void)testCanCalculate100PercentTip
+{
+    double billAmount = 20;
+    double tipPercentage = 100;
+    
+    TipCalculator* calculator = [[TipCalculator alloc] init];
+    
+    double result = [calculator getTipForAmount:billAmount tipPercent:tipPercentage];
+    
+    XCTAssertEqual((double)20, result, @"Tip should have been 20 dollars");
 }
 
 - (void)testErrorOnNegativeAmount
