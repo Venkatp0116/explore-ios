@@ -8,6 +8,21 @@
 
 #import <XCTest/XCTest.h>
 
+@interface TipCalculator : NSObject
+
+- (double) getTipForAmount:(double)amount tipPercent:(double)tipPercent;
+
+@end
+
+@implementation TipCalculator : NSObject
+
+- (double) getTipForAmount:(double)amount tipPercent:(double)tipPercent
+{
+    return 0;
+}
+
+@end
+
 @interface TipCalculatorTests : XCTestCase
 
 @end
@@ -26,19 +41,29 @@
     [super tearDown];
 }
 
-- (void)canDeriveTipFromBillAmount
+- (void)testCanDeriveTipFromBillAmount
+{
+    double billAmount = 20;
+    double tipPercentage = 20;
+    TipCalculator* calculator = [[TipCalculator alloc] init];
+    
+    double result = [calculator getTipForAmount:billAmount tipPercent:tipPercentage];
+
+    XCTAssertEqual((double)2, result, @"Tip should have been 2 dollars");
+}
+
+- (void)testErrorOnNegativeAmount
 {
     
 }
 
-- (void)errorOnNegativeAmount
+- (void)testZeroTipOnZeroBillAmount
 {
     
 }
 
-- (void)zeroTipOnZeroBillAmount
-{
-    
-}
+
 
 @end
+
+
