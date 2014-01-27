@@ -67,17 +67,17 @@
     XCTAssertEqual((double)20, result, @"Tip should have been 20 dollars");
 }
 
-- (void)testErrorOnNegativeAmount
-{
-    
-}
-
 - (void)testZeroTipOnZeroBillAmount
 {
+    double billAmount = 0;
+    double tipPercentage = 100;
     
+    TipCalculator* calculator = [[TipCalculator alloc] init];
+    
+    double result = [calculator getTipForAmount:billAmount tipPercent:tipPercentage];
+    
+    XCTAssertEqual((double)0, result, @"Tip should have been 0 dollars");
 }
-
-
 
 @end
 
