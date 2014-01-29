@@ -9,7 +9,10 @@
 #import "MainViewController.h"
 
 @interface MainViewController ()
-
+@property (strong, nonatomic) IBOutlet UITextField *billAmount;
+@property (strong, nonatomic) IBOutlet UITextField *tipPercent;
+@property (strong, nonatomic) IBOutlet UILabel *TipAmount;
+@property (strong, nonatomic) IBOutlet UILabel *TotalAmount;
 @end
 
 @implementation MainViewController
