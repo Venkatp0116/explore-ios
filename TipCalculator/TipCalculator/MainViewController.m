@@ -26,6 +26,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)calculateTip:(id)sender
+{
+    NSLog(@"Calculate that tip!");
+}
+
 #pragma mark - Flipside View Controller
 
 - (void)flipsideViewControllerDidFinish:(FlipsideViewController *)controller

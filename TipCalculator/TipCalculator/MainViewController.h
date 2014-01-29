@@ -10,6 +10,8 @@
 
 @interface MainViewController : UIViewController <FlipsideViewControllerDelegate, UIPopoverControllerDelegate>
 
+- (IBAction)calculateTip:(id)sender;
+
 @property (strong, nonatomic) UIPopoverController *flipsidePopoverController;
 
 @end
