@@ -7,6 +7,7 @@
 //
 
 #import "MainViewController.h"
+#import "TipCalculator.h"
 
 @interface MainViewController ()
 @property (strong, nonatomic) IBOutlet UITextField *billAmount;
@@ -31,7 +32,23 @@
 
 - (IBAction)calculateTip:(id)sender
 {
+    NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+    TipCalculator *tipCalculator = [[TipCalculator alloc] init];
+    
+    
     NSLog(@"Calculate that tip!");
+    NSLog(@"BillAmount=%@;TipPercent=%@", _billAmount.text, _tipPercent.text);
+    
+    double billAmountDecimal = [[numberFormatter numberFromString:_billAmount.text] doubleValue];
+    double tipPercentDecimal = [[numberFormatter numberFromString:_tipPercent.text] doubleValue];
+    
+    NSLog(@"Tip decimal values:");
+    NSLog(@"BillAmount=%f;TipPercent=%f", billAmountDecimal, tipPercentDecimal);
+    
+    double tipAmount = [tipCalculator getTipForAmount:billAmountDecimal tipPercent:tipPercentDecimal];
+    
+    NSLog(@"Tip amount is %f", tipAmount);
+    NSLog(@"Total amount is %f", tipAmount + billAmountDecimal);
 }
 
 #pragma mark - Flipside View Controller

@@ -7,24 +7,11 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "TipCalculator.h"
 
-@interface TipCalculator : NSObject
 
-- (double) getTipForAmount:(double)amount tipPercent:(double)tipPercent;
 
-@end
 
-@implementation TipCalculator : NSObject
-
-- (double) getTipForAmount:(double)amount tipPercent:(double)tipPercent
-{
-    if (tipPercent > 1)
-        tipPercent = tipPercent / 100;
-    
-    return tipPercent * amount;
-}
-
-@end
 
 @interface TipCalculatorTests : XCTestCase
 
