@@ -32,6 +32,8 @@
 
 - (IBAction)calculateTip:(id)sender
 {
+    [_tipPercent endEditing:YES];
+    
     NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
     TipCalculator *tipCalculator = [[TipCalculator alloc] init];
     
