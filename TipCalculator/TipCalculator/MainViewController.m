@@ -35,6 +35,8 @@
     NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
     TipCalculator *tipCalculator = [[TipCalculator alloc] init];
     
+    NSNumberFormatter *currencyFormatter = [[NSNumberFormatter alloc] init];
+    [currencyFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
     
     NSLog(@"Calculate that tip!");
     NSLog(@"BillAmount=%@;TipPercent=%@", _billAmount.text, _tipPercent.text);
@@ -49,6 +51,9 @@
     
     NSLog(@"Tip amount is %f", tipAmount);
     NSLog(@"Total amount is %f", tipAmount + billAmountDecimal);
+    
+    _TipAmount.text = [currencyFormatter stringFromNumber: [NSNumber numberWithDouble: tipAmount]];
+    _TotalAmount.text = [currencyFormatter stringFromNumber: [NSNumber numberWithDouble:tipAmount + billAmountDecimal]];
 }
 
 #pragma mark - Flipside View Controller
