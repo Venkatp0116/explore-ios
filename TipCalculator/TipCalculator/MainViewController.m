@@ -54,6 +54,15 @@
     
     double totalAmount = tipAmount + billAmountDecimal;
     
+    if (self.shouldRoundTotalToNearestDollar)
+    {
+        long totalRoundedUp = ceil(totalAmount);
+        tipAmount = totalRoundedUp - billAmountDecimal;
+        totalAmount = tipAmount + billAmountDecimal;
+        
+        _tipPercent.text = [currencyFormatter stringFromNumber: [NSNumber numberWithDouble:tipAmount]];
+    }
+    
     NSLog(@"Tip amount is %f", tipAmount);
     NSLog(@"Total amount is %f", totalAmount);
     
