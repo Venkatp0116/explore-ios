@@ -17,6 +17,7 @@
 @interface FlipsideViewController : UIViewController
 
 @property (weak, nonatomic) id <FlipsideViewControllerDelegate> delegate;
+@property (strong, nonatomic) IBOutlet UISwitch *roundToDollarSwitch;
 
 - (IBAction)done:(id)sender;
 

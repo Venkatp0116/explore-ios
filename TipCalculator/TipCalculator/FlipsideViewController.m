@@ -9,7 +9,7 @@
 #import "FlipsideViewController.h"
 
 @interface FlipsideViewController ()
-@property (strong, nonatomic) IBOutlet UISwitch *roundToDollarSwitch;
+
 @end
 
 @implementation FlipsideViewController

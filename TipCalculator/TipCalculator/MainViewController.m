@@ -14,6 +14,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *tipPercent;
 @property (strong, nonatomic) IBOutlet UILabel *TipAmount;
 @property (strong, nonatomic) IBOutlet UILabel *TotalAmount;
+@property BOOL shouldRoundTotalToNearestDollar;
 @end
 
 @implementation MainViewController
@@ -51,11 +52,13 @@
     
     double tipAmount = [tipCalculator getTipForAmount:billAmountDecimal tipPercent:tipPercentDecimal];
     
+    double totalAmount = tipAmount + billAmountDecimal;
+    
     NSLog(@"Tip amount is %f", tipAmount);
-    NSLog(@"Total amount is %f", tipAmount + billAmountDecimal);
+    NSLog(@"Total amount is %f", totalAmount);
     
     _TipAmount.text = [currencyFormatter stringFromNumber: [NSNumber numberWithDouble: tipAmount]];
-    _TotalAmount.text = [currencyFormatter stringFromNumber: [NSNumber numberWithDouble:tipAmount + billAmountDecimal]];
+    _TotalAmount.text = [currencyFormatter stringFromNumber: [NSNumber numberWithDouble:totalAmount]];
 }
 
 #pragma mark - Flipside View Controller
@@ -67,6 +70,9 @@
     } else {
         [self.flipsidePopoverController dismissPopoverAnimated:YES];
     }
+    
+    self.shouldRoundTotalToNearestDollar = controller.roundToDollarSwitch.on;
+    NSLog(@"Switch Value = %d", self.shouldRoundTotalToNearestDollar);
 }
 
 - (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
