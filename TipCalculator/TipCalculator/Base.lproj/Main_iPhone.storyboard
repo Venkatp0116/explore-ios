@@ -53,6 +53,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad" keyboardAppearance="light" returnKeyType="done"/>
                                 <connections>
+                                    <action selector="textFieldDidChange:" destination="rQl-PL-IFJ" eventType="editingChanged" id="Ku3-3L-eL5"/>
                                     <outlet property="delegate" destination="rQl-PL-IFJ" id="aqa-2p-xMy"/>
                                 </connections>
                             </textField>
