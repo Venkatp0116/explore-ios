@@ -112,4 +112,16 @@
     }
 }
 
+-(IBAction)textFieldDidChange :(UITextField *)theTextField
+{
+    NSLog( @"TEXT CHANGED: %@", theTextField.text);
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    NSLog(@"Text Field Text %@", textField.text);
+    NSLog(@"shouldChangeCharactersInRange %@ %lu %lu", string, (unsigned long)range.length, (unsigned long)range.location);
+    return YES;
+}
+
 @end
